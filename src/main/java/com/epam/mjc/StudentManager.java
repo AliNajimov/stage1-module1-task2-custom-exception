@@ -6,10 +6,8 @@ public class StudentManager {
     private static final long[] IDs = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
 
     public Student find(long studentID) throws StudentManagerException {
-        for (int i = 0; i < IDs.length; i++) {
-            if (studentID != IDs[1]) {
-                throw  new StudentManagerException("Could not find student with ID " + studentID);
-            }
+        if (studentID < 1 || studentID > 11) {
+            throw new StudentManagerException("Could not find student with ID " + studentID);
         }
         return Student.getValueOf(studentID);
 
